@@ -6,6 +6,4 @@ def main():
     artworks = get_artwork()
     make_collage(artworks)
 
-
-
 main()
