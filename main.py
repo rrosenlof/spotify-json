@@ -1,9 +1,11 @@
 #!/usr/bin/python
 import json
-from parse import get_data, get_latest, get_artwork
+from functions import make_collage, get_artwork
 
 def main():
-    get_artwork()
+    artworks = get_artwork()
+    make_collage(artworks)
+
 
 
 main()
