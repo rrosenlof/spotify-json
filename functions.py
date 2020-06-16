@@ -11,7 +11,7 @@ from urllib.request import urlopen
 import colorsys
 
 # Constants
-THUMBNAILS_PER_ROW = 4
+THUMBNAILS_PER_ROW = 8
 THUMBNAIL_WIDTH = 300
 THUMBNAIL_HEIGHT = 300
 MODE = 'RGB'
