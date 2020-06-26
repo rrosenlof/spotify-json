@@ -75,18 +75,21 @@ def make_collage(artworks):
 
 def sort_artwork(artworks):
     listArtColors = []
+    reps = len(artworks)
     for artwork in artworks:
         fd = urlopen(artwork)
         f = io.BytesIO(fd.read())
         color = ColorThief(f)            
         dominant_color = color.get_color(quality=1)
-        hsv_color = step(dominant_color[0], dominant_color[1], dominant_color[2], 8)
+        hsv_color = step(dominant_color[0], dominant_color[1], dominant_color[2],300 )
         dictArtColors = dict(artwork=artwork, color=hsv_color)
         listArtColors.append(dictArtColors)
+        print(dictArtColors['color'][0])
+    
     
     # listArtColors.sort(key=lambda x: x['color'][1], reverse=True)
     # listArtColors.sort(key=lambda x: x['color'], reverse=True)
-    listArtColors.sort(key=lambda x: x['color'][1])
+    listArtColors.sort(key=lambda x: x['color'][0])
 
     return listArtColors
 
