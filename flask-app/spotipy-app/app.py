@@ -1,22 +1,19 @@
 import sys
 import spotipy
-import spotipy.util as util
+# import spotipy.util as util
+from spotipy.oauth2 import SpotifyClientCredentials
 
-scope = 'user-library-read'
+import configparser
 
-if len(sys.argv) > 1:
-  username = sys.argv[1]
-else:
-  print("Usage %s username" % (sys.argv[0],))
-  sys.exit()
+config = configparser.ConfigParser()
+config.read('config.cfg')
+client_id = config.get('SPOTIFY', 'CLIENT_ID')
+client_secret = config.get('SPOTIFY', 'CLIENT_SECRET')
+print(client_id)
 
-token = util.prompt_for_user_token(username, scope)
+client_credentials_manager = SpotifyClientCredentials(client_id,client_secret)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-if token:
-  sp = spotipy.Spotify(auth=token)
-  results = sp.current_user_saved_tracks()
-  for item in results['items']:
-    track = item['track']
-    print(track['name'] + ' - ' + track['artists'][0]['name'])
-else:
-  print('can\'t get token for', username)
+search_str = 'Muse'
+result = sp.search(search_str)
+print(result)
