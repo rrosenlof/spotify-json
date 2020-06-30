@@ -14,6 +14,12 @@ print(client_id)
 client_credentials_manager = SpotifyClientCredentials(client_id,client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-search_str = 'Muse'
-result = sp.search(search_str)
-print(result)
+playlists = sp.user_playlists('ross.rosenlof')
+while playlists:
+    for i, playlist in enumerate(playlists['items']):
+        print("%4d %s %s" % (i + 1 + playlists['offset'], playlist['uri'],  playlist['name']))
+    if playlists['next']:
+        playlists = sp.next(playlists)
+    else:
+        playlists = None
+print(playlists)
