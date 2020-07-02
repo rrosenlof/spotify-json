@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    {% if user %}
+        <h1>{{ user }}'s Playlists:</h1>     
+        <p>{{ playlists }}</p>
+    {% else %}
+        <h1>Please enter a <a href="/username">username</a></h1>
+    {% endif %}
 {% endblock %}

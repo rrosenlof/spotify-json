@@ -1,26 +1,14 @@
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - Microblog</title>
-      {% else %}
-      <title>Welcome to Microblog</title>
-      {% endif %}
+      <title>Spotify Playlist Collage</title>
     </head>
     <body>
-        <div>Microblog: 
+        <div>Spotify Playlist Collage 
             <a href="/index">Home</a>
-            <a href="/username">Username</a>
+            <a href="/username">Enter Username</a>
+            <a href="/logout">Clear username</a>
         </div>
         <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>
