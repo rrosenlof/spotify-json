@@ -2,8 +2,14 @@
 
 {% block content %}
     {% if user %}
-        <h1>{{ user }}'s Playlists:</h1>     
-        <p>{{ playlists }}</p>
+        <h1>{{ user }}'s Playlists:</h1>  
+        {% for playlist in playlists['items'] %}
+            <div class="playlist">
+                <img style="height: 150px;width:150px;" src="{{ playlist.images[0].url}}">
+                <h3>{{ playlist.name }}</h3>
+                <p>{{ playlist.description }}</p>
+            </div>
+        {% endfor %}
     {% else %}
         <h1>Please enter a <a href="/username">username</a></h1>
     {% endif %}
