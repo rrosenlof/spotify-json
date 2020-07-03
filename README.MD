@@ -16,9 +16,9 @@ CLIENT_SECRET=...
 
 ### Pages to Add:
 
-- [ x ] Collage details page: link from list of playlists to set up vars for collage creation
-- [ x ] Collage page: view/download created image
--  [ ] About: explain the app and all that
+[x] Collage details page: link from list of playlists to set up vars for collage creation
+[x] Collage page: view/download created image
+[ ] About: explain the app and all that
 
 ### Other Tasks:
 
