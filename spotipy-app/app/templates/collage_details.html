@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h1>{{ playlist.name }}</h1>
+        <p style="font-style:italic">Number of songs: {{ num_tracks }}</p>
+        <h3>Enter the following information to make your collage:</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.artwork_width.label }}<br>
+                {{ form.artwork_width(size=32) }}
+            </p>
+            <p>
+                {{ form.artwork_height.label }}<br>
+                {{ form.artwork_height(size=32) }}
+            </p>
+            <p>
+                {{ form.artwork_row.label }}<br>
+                {{ form.artwork_row(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        <ul>
+            {% for track in tracks %}
+            <li>{{track.track.name}}</li>
+        {% endfor %}
+        </ul>
+        
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@
         {% for playlist in playlists['items'] %}
             <div class="playlist">
                 <img style="height: 150px;width:150px;" src="{{ playlist.images[0].url}}">
-                <h3>{{ playlist.name }}</h3>
+                <h3><a href="{{ url_for('collage_details', playlist_id=playlist.id) }}">{{ playlist.name }}</a></h3>
                 <p>{{ playlist.description }}</p>
             </div>
         {% endfor %}
