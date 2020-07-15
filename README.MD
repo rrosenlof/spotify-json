@@ -1,6 +1,6 @@
 # About
 
-Spotify data downloaded on May 4.
+Some Python scripts and a Flask project for making a collage of a playlists contents. Spotify data downloaded on May 4.
 
 ## Config
 
